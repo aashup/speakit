@@ -1,0 +1,50 @@
+{
+  "name": "Text to voice",
+  "description": "Convert to voice",
+  "version": "1.0",
+  "manifest_version": 2,
+  "background": {
+    "scripts": ["js/background.js"]
+  },
+  "content_scripts": [ {
+    "all_frames": true,
+    "js": [
+      "js/content.js"
+    ],
+    "matches": [ "http://*/*", "https://*/*" ],
+    "run_at": "document_end"
+  }],
+  "web_accessible_resources":[
+    "resource/*"
+  ],
+  "browser_action": {
+    "default_popup": "dashboard.html",
+    "default_icon": "img/icon_64.png"
+  },
+  "icons": {
+    "128": "img/icon_128.png",
+    "64": "img/icon_64.png",
+    "32": "img/icon_32.png",
+    "16": "img/icon_16.png"
+  },
+  "permissions": [
+    "contextMenus",
+    "tabs",
+    "storage",
+    "tts"
+  ],
+  "commands": {
+    "start-ttl": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+3"
+      },
+      "description": "This shortcut key for start read."
+    },
+    "stop-ttl": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+2"
+      },
+      "description": "This shortcut key for stop read."
+    }
+  }
+}
